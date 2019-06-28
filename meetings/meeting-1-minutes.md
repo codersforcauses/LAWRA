@@ -6,10 +6,9 @@
 * Use the one we have access to as a trial
 * Client will be giving us designs
 * 7 step decision tree
-* User feedback in a database (yes, no was it helpful)
+* Simple analytics platform that captures decisions users made
 
 ## Action items
 * Innocent to get code for josef
 * Thai lock down master
 * Upload decision tree to github
-* 
