@@ -33,7 +33,7 @@ $ npm install
 $ npm start
 
 # build for production
-$ npm build
+$ npm run build
 ```
 
 ## Project Brief
