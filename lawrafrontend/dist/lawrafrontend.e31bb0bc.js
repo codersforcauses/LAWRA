@@ -6645,7 +6645,6 @@ function (_Component) {
       var _this2 = this;
 
       var _this$props2 = this.props,
-          speak = _this$props2.speak,
           step = _this$props2.step,
           previousValue = _this$props2.previousValue,
           triggerNextStep = _this$props2.triggerNextStep;
@@ -6658,8 +6657,6 @@ function (_Component) {
           if (!waitAction && !step.rendered) {
             triggerNextStep();
           }
-
-          speak(step, previousValue);
         });
       }, delay);
     }
@@ -6681,15 +6678,10 @@ function (_Component) {
 CustomStep.propTypes = {
   previousStep: _propTypes.default.objectOf(_propTypes.default.any).isRequired,
   previousValue: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.bool, _propTypes.default.number, _propTypes.default.object, _propTypes.default.array]),
-  speak: _propTypes.default.func,
   step: _propTypes.default.objectOf(_propTypes.default.any).isRequired,
   steps: _propTypes.default.objectOf(_propTypes.default.any).isRequired,
   style: _propTypes.default.objectOf(_propTypes.default.any).isRequired,
   triggerNextStep: _propTypes.default.func.isRequired
-};
-CustomStep.defaultProps = {
-  previousValue: '',
-  speak: function speak() {}
 };
 var _default = CustomStep;
 exports.default = _default;
@@ -7233,8 +7225,6 @@ function (_Component) {
 
       var _this$props3 = this.props,
           step = _this$props3.step,
-          speak = _this$props3.speak,
-          previousValue = _this$props3.previousValue,
           triggerNextStep = _this$props3.triggerNextStep;
       var component = step.component,
           delay = step.delay,
@@ -7247,8 +7237,6 @@ function (_Component) {
           if (!isComponentWatingUser && !step.rendered) {
             triggerNextStep();
           }
-
-          speak(step, previousValue);
         });
       }, delay);
     }
@@ -7303,7 +7291,6 @@ TextStep.propTypes = {
   hideUserAvatar: _propTypes.default.bool.isRequired,
   previousStep: _propTypes.default.objectOf(_propTypes.default.any),
   previousValue: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.bool, _propTypes.default.number, _propTypes.default.object, _propTypes.default.array]),
-  speak: _propTypes.default.func,
   step: _propTypes.default.objectOf(_propTypes.default.any).isRequired,
   steps: _propTypes.default.objectOf(_propTypes.default.any),
   triggerNextStep: _propTypes.default.func.isRequired
@@ -7311,7 +7298,6 @@ TextStep.propTypes = {
 TextStep.defaultProps = {
   previousStep: {},
   previousValue: '',
-  speak: function speak() {},
   steps: {}
 };
 var _default = TextStep;
@@ -8277,18 +8263,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n            ", " 2s ease infinite\n          "]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  background-color: transparent;\n  border: 0;\n  border-bottom-right-radius: 10px;\n  box-shadow: none;\n  cursor: ", ";\n  fill: ", ";\n  opacity: ", ";\n  outline: none;\n  padding: 14px 16px 12px 16px;\n  position: absolute;\n  right: 0;\n  top: 0;\n  &:before {\n    content: '';\n    position: absolute;\n    width: 23px;\n    height: 23px;\n    border-radius: 50%;\n    animation: ", ";\n  }\n  &:not(:disabled):hover {\n    opacity: 0.7;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  background-color: transparent;\n  border: 0;\n  border-bottom-right-radius: 10px;\n  box-shadow: none;\n  cursor: ", ";\n  fill: ", ";\n  opacity: ", ";\n  outline: none;\n  padding: 14px 16px 12px 16px;\n  position: absolute;\n  right: 0;\n  top: 0;\n  &:before {\n    content: '';\n    position: absolute;\n    width: 23px;\n    height: 23px;\n    border-radius: 50%;\n  }\n  &:not(:disabled):hover {\n    opacity: 0.7;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -8300,14 +8276,7 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var fillFunc = function fillFunc(props) {
-  var speaking = props.speaking,
-      invalid = props.invalid,
-      theme = props.theme;
-
-  if (speaking) {
-    return theme.headerBgColor;
-  }
-
+  var invalid = props.invalid;
   return invalid ? '#E53935' : '#4a4a4a';
 };
 
@@ -8315,10 +8284,6 @@ var SubmitButton = _styledComponents.default.button(_templateObject(), function 
   return props.disabled ? 'default' : 'pointer';
 }, fillFunc, function (props) {
   return props.disabled && !props.invalid ? '.5' : '1';
-}, function (_ref) {
-  var theme = _ref.theme,
-      speaking = _ref.speaking;
-  return speaking ? (0, _styledComponents.css)(_templateObject2(), (0, _animations.pulse)(theme.headerBgColor)) : '';
 });
 
 SubmitButton.defaultProps = {
@@ -8414,236 +8379,7 @@ var _Input = _interopRequireDefault(require("./Input"));
 var _SubmitButton = _interopRequireDefault(require("./SubmitButton"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./ChatBotContainer":"react-simple-chatbot/components/ChatBotContainer.jsx","./Content":"react-simple-chatbot/components/Content.jsx","./Header":"react-simple-chatbot/components/Header.jsx","./HeaderTitle":"react-simple-chatbot/components/HeaderTitle.jsx","./HeaderIcon":"react-simple-chatbot/components/HeaderIcon.jsx","./FloatButton":"react-simple-chatbot/components/FloatButton.jsx","./FloatingIcon":"react-simple-chatbot/components/FloatingIcon.jsx","./Footer":"react-simple-chatbot/components/Footer.jsx","./Input":"react-simple-chatbot/components/Input.jsx","./SubmitButton":"react-simple-chatbot/components/SubmitButton.jsx"}],"react-simple-chatbot/recognition.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var instance = null;
-
-var noop = function noop() {};
-
-var Recognition =
-/*#__PURE__*/
-function () {
-  _createClass(Recognition, null, [{
-    key: "isSupported",
-    value: function isSupported() {
-      return 'webkitSpeechRecognition' in window;
-    }
-    /**
-     * Creates an instance of Recognition.
-     * @param {function} [onChange] callback on change
-     * @param {function} [onEnd]  callback on and
-     * @param {function} [onStop]  callback on stop
-     * @param {string} [lang='en'] recognition lang
-     * @memberof Recognition
-     * @constructor
-     */
-
-  }]);
-
-  function Recognition() {
-    var onChange = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : noop;
-    var onEnd = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
-    var onStop = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : noop;
-    var lang = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'en';
-
-    _classCallCheck(this, Recognition);
-
-    if (!instance) {
-      instance = this;
-    }
-
-    this.state = {
-      inputValue: '',
-      lang: lang,
-      onChange: onChange,
-      onEnd: onEnd,
-      onStop: onStop
-    };
-    this.onResult = this.onResult.bind(this);
-    this.onEnd = this.onEnd.bind(this);
-    this.setup();
-    return instance;
-  }
-  /**
-   * Handler for recognition change event
-   * @param {string} interimTranscript
-   * @memberof Recognition
-   * @private
-   */
-
-
-  _createClass(Recognition, [{
-    key: "onChange",
-    value: function onChange(interimTranscript) {
-      var onChange = this.state.onChange;
-      this.setState({
-        inputValue: interimTranscript
-      });
-      onChange(interimTranscript);
-    }
-    /**
-     * Handler for recognition change event when its final
-     * @param {string} finalTranscript
-     * @memberof Recognition
-     * @private
-     */
-
-  }, {
-    key: "onFinal",
-    value: function onFinal(finalTranscript) {
-      this.setState({
-        inputValue: finalTranscript
-      });
-      this.recognition.stop();
-    }
-    /**
-     * Handler for recognition end event
-     * @memberof Recognition
-     * @private
-     */
-
-  }, {
-    key: "onEnd",
-    value: function onEnd() {
-      var _this$state = this.state,
-          onStop = _this$state.onStop,
-          onEnd = _this$state.onEnd,
-          force = _this$state.force;
-      this.setState({
-        speaking: false
-      });
-
-      if (force) {
-        onStop();
-      } else {
-        onEnd();
-      }
-    }
-    /**
-     * Handler for recognition result event
-     * @memberof Recognition
-     * @private
-     */
-
-  }, {
-    key: "onResult",
-    value: function onResult(event) {
-      var interimTranscript = '';
-      var finalTranscript = '';
-
-      for (var i = event.resultIndex; i < event.results.length; i += 1) {
-        if (event.results[i].isFinal) {
-          finalTranscript += event.results[i][0].transcript;
-          this.onFinal(finalTranscript);
-        } else {
-          interimTranscript += event.results[i][0].transcript;
-          this.onChange(interimTranscript);
-        }
-      }
-    }
-    /**
-     * method for updating the instance state
-     * @param {object} nextState
-     * @memberof Recognition
-     * @private
-     */
-
-  }, {
-    key: "setState",
-    value: function setState(nextState) {
-      this.state = Object.assign({}, this.state, nextState);
-    }
-    /**
-     * setup the browser recognition
-     * @returns {Recognition}
-     * @memberof Recognition
-     * @public
-     */
-
-  }, {
-    key: "setup",
-    value: function setup() {
-      if (!Recognition.isSupported()) {
-        return this;
-      }
-
-      var _window = window,
-          webkitSpeechRecognition = _window.webkitSpeechRecognition;
-      this.recognition = new webkitSpeechRecognition();
-      this.recognition.continuous = true;
-      this.recognition.interimResults = true;
-      this.recognition.lang = this.state.lang;
-      this.recognition.onresult = this.onResult;
-      this.recognition.onend = this.onEnd;
-      return this;
-    }
-    /**
-     * change the recognition lang and resetup
-     * @param {string} lang the new lang
-     * @returns {Recognition}
-     * @memberof Recognition
-     * @public
-     */
-
-  }, {
-    key: "setLang",
-    value: function setLang(lang) {
-      this.setState({
-        lang: lang
-      });
-      this.setup();
-      return this;
-    }
-    /**
-     * toggle the recognition
-     * @returns {Recognition}
-     * @memberof Recognition
-     * @public
-     */
-
-  }, {
-    key: "speak",
-    value: function speak() {
-      if (!Recognition.isSupported()) {
-        return this;
-      }
-
-      var speaking = this.state.speaking;
-
-      if (!speaking) {
-        this.recognition.start();
-        this.setState({
-          speaking: true,
-          inputValue: ''
-        });
-      } else {
-        this.setState({
-          force: true
-        });
-        this.recognition.stop();
-      }
-
-      return this;
-    }
-  }]);
-
-  return Recognition;
-}();
-
-exports.default = Recognition;
-},{}],"react-simple-chatbot/icons/ChatIcon.jsx":[function(require,module,exports) {
+},{"./ChatBotContainer":"react-simple-chatbot/components/ChatBotContainer.jsx","./Content":"react-simple-chatbot/components/Content.jsx","./Header":"react-simple-chatbot/components/Header.jsx","./HeaderTitle":"react-simple-chatbot/components/HeaderTitle.jsx","./HeaderIcon":"react-simple-chatbot/components/HeaderIcon.jsx","./FloatButton":"react-simple-chatbot/components/FloatButton.jsx","./FloatingIcon":"react-simple-chatbot/components/FloatingIcon.jsx","./Footer":"react-simple-chatbot/components/Footer.jsx","./Input":"react-simple-chatbot/components/Input.jsx","./SubmitButton":"react-simple-chatbot/components/SubmitButton.jsx"}],"react-simple-chatbot/icons/ChatIcon.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8830,64 +8566,7 @@ var isString = function isString(value) {
 };
 
 exports.isString = isString;
-},{}],"react-simple-chatbot/speechSynthesis.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.speakFn = exports.getSpeakText = void 0;
-
-var _utils = require("./utils");
-
-var getSpeakText = function getSpeakText(step) {
-  var message = step.message,
-      _step$metadata = step.metadata,
-      metadata = _step$metadata === void 0 ? {} : _step$metadata;
-
-  if ((0, _utils.isString)(metadata.speak)) {
-    return metadata.speak;
-  }
-
-  if ((0, _utils.isString)(message)) {
-    return message;
-  }
-
-  return '';
-};
-
-exports.getSpeakText = getSpeakText;
-
-var speakFn = function speakFn(speechSynthesisOptions) {
-  return function (step, previousValue) {
-    var lang = speechSynthesisOptions.lang,
-        voice = speechSynthesisOptions.voice,
-        enable = speechSynthesisOptions.enable;
-    var user = step.user;
-
-    if (!window.SpeechSynthesisUtterance || !window.speechSynthesis) {
-      return;
-    }
-
-    if (user) {
-      return;
-    }
-
-    if (!enable) {
-      return;
-    }
-
-    var text = getSpeakText(step);
-    var msg = new window.SpeechSynthesisUtterance();
-    msg.text = text.replace(/{previousValue}/g, previousValue);
-    msg.lang = lang;
-    msg.voice = voice;
-    window.speechSynthesis.speak(msg);
-  };
-};
-
-exports.speakFn = speakFn;
-},{"./utils":"react-simple-chatbot/utils.js"}],"react-simple-chatbot/ChatBot.jsx":[function(require,module,exports) {
+},{}],"react-simple-chatbot/ChatBot.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8909,13 +8588,9 @@ var storage = _interopRequireWildcard(require("./storage"));
 
 var _components = require("./components");
 
-var _recognition = _interopRequireDefault(require("./recognition"));
-
 var _icons = require("./icons");
 
 var _utils = require("./utils");
-
-var _speechSynthesis = require("./speechSynthesis");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8975,26 +8650,6 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "onResize", function () {
       _this.content.scrollTop = _this.content.scrollHeight;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onRecognitionChange", function (value) {
-      _this.setState({
-        inputValue: value
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onRecognitionEnd", function () {
-      _this.setState({
-        speaking: false
-      });
-
-      _this.handleSubmitButton();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onRecognitionStop", function () {
-      _this.setState({
-        speaking: false
-      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "onValueChange", function (event) {
@@ -9268,31 +8923,15 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSubmitButton", function () {
-      var _this$state3 = _this.state,
-          speaking = _this$state3.speaking,
-          recognitionEnable = _this$state3.recognitionEnable;
-
-      if ((_this.isInputValueEmpty() || speaking) && recognitionEnable) {
-        _this.recognition.speak();
-
-        if (!speaking) {
-          _this.setState({
-            speaking: true
-          });
-        }
-
-        return;
-      }
-
       _this.submitUserMessage();
     });
 
     _defineProperty(_assertThisInitialized(_this), "submitUserMessage", function () {
-      var _this$state4 = _this.state,
-          defaultUserSettings = _this$state4.defaultUserSettings,
-          inputValue = _this$state4.inputValue,
-          previousSteps = _this$state4.previousSteps,
-          renderedSteps = _this$state4.renderedSteps;
+      var _this$state3 = _this.state,
+          defaultUserSettings = _this$state3.defaultUserSettings,
+          inputValue = _this$state3.inputValue,
+          previousSteps = _this$state3.previousSteps,
+          renderedSteps = _this$state3.renderedSteps;
       var currentStep = _this.state.currentStep;
 
       var isInvalid = currentStep.validator && _this.checkInvalidInput();
@@ -9322,9 +8961,9 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "checkInvalidInput", function () {
       var enableMobileAutoFocus = _this.props.enableMobileAutoFocus;
-      var _this$state5 = _this.state,
-          currentStep = _this$state5.currentStep,
-          inputValue = _this$state5.inputValue;
+      var _this$state4 = _this.state,
+          currentStep = _this$state4.currentStep,
+          inputValue = _this$state4.inputValue;
       var result = currentStep.validator(inputValue);
       var value = inputValue;
 
@@ -9390,7 +9029,6 @@ function (_Component) {
       if (component && !asMessage) {
         return _react.default.createElement(_steps_components.CustomStep, {
           key: index,
-          speak: _this.speak,
           step: step,
           steps: steps,
           style: customStyle,
@@ -9404,7 +9042,6 @@ function (_Component) {
         return _react.default.createElement(_steps_components.OptionsStep, {
           key: index,
           step: step,
-          speak: _this.speak,
           previousValue: previousStep.value,
           triggerNextStep: _this.triggerNextStep,
           bubbleOptionStyle: bubbleOptionStyle
@@ -9415,7 +9052,6 @@ function (_Component) {
         key: index,
         step: step,
         steps: steps,
-        speak: _this.speak,
         previousStep: previousStep,
         previousValue: previousStep.value,
         triggerNextStep: _this.triggerNextStep,
@@ -9451,11 +9087,8 @@ function (_Component) {
       opened: props.opened || !props.floating,
       inputValue: '',
       inputInvalid: false,
-      speaking: false,
-      recognitionEnable: props.recognitionEnable && _recognition.default.isSupported(),
       defaultUserSettings: {}
     };
-    _this.speak = (0, _speechSynthesis.speakFn)(props.speechSynthesis);
     return _this;
   }
 
@@ -9513,13 +9146,6 @@ function (_Component) {
         chatSteps[firstStep.id].message = firstStep.message;
       }
 
-      var recognitionEnable = this.state.recognitionEnable;
-      var recognitionLang = this.props.recognitionLang;
-
-      if (recognitionEnable) {
-        this.recognition = new _recognition.default(this.onRecognitionChange, this.onRecognitionEnd, this.onRecognitionStop, recognitionLang);
-      }
-
       this.supportsScrollBehavior = 'scrollBehavior' in document.documentElement.style;
 
       if (this.content) {
@@ -9571,15 +9197,13 @@ function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      var _this$state6 = this.state,
-          currentStep = _this$state6.currentStep,
-          disabled = _this$state6.disabled,
-          inputInvalid = _this$state6.inputInvalid,
-          inputValue = _this$state6.inputValue,
-          opened = _this$state6.opened,
-          renderedSteps = _this$state6.renderedSteps,
-          speaking = _this$state6.speaking,
-          recognitionEnable = _this$state6.recognitionEnable;
+      var _this$state5 = this.state,
+          currentStep = _this$state5.currentStep,
+          disabled = _this$state5.disabled,
+          inputInvalid = _this$state5.inputInvalid,
+          inputValue = _this$state5.inputValue,
+          opened = _this$state5.opened,
+          renderedSteps = _this$state5.renderedSteps;
       var _this$props4 = this.props,
           className = _this$props4.className,
           contentStyle = _this$props4.contentStyle,
@@ -9594,7 +9218,6 @@ function (_Component) {
           inputStyle = _this$props4.inputStyle,
           placeholder = _this$props4.placeholder,
           inputAttributes = _this$props4.inputAttributes,
-          recognitionPlaceholder = _this$props4.recognitionPlaceholder,
           style = _this$props4.style,
           submitButtonStyle = _this$props4.submitButtonStyle,
           width = _this$props4.width,
@@ -9611,8 +9234,9 @@ function (_Component) {
         }
       }, _react.default.createElement(_icons.CloseIcon, null)));
 
-      var icon = (this.isInputValueEmpty() || speaking) && recognitionEnable ? _react.default.createElement(_icons.MicIcon, null) : _react.default.createElement(_icons.SubmitIcon, null);
-      var inputPlaceholder = speaking ? recognitionPlaceholder : currentStep.placeholder || placeholder;
+      var icon = _react.default.createElement(_icons.SubmitIcon, null);
+
+      var inputPlaceholder = placeholder;
       var inputAttributesOverride = currentStep.inputAttributes || inputAttributes;
       return _react.default.createElement("div", {
         className: "rsc ".concat(className)
@@ -9661,8 +9285,7 @@ function (_Component) {
         style: submitButtonStyle,
         onClick: this.handleSubmitButton,
         invalid: inputInvalid,
-        disabled: disabled,
-        speaking: speaking
+        disabled: disabled
       }, icon))));
     }
   }], [{
@@ -9715,14 +9338,6 @@ ChatBot.propTypes = {
   opened: _propTypes.default.bool,
   toggleFloating: _propTypes.default.func,
   placeholder: _propTypes.default.string,
-  recognitionEnable: _propTypes.default.bool,
-  recognitionLang: _propTypes.default.string,
-  recognitionPlaceholder: _propTypes.default.string,
-  speechSynthesis: _propTypes.default.shape({
-    enable: _propTypes.default.bool,
-    lang: _propTypes.default.string,
-    voice: typeof window !== 'undefined' ? _propTypes.default.instanceOf(window.SpeechSynthesisVoice) : _propTypes.default.any
-  }),
   steps: _propTypes.default.arrayOf(_propTypes.default.object).isRequired,
   style: _propTypes.default.objectOf(_propTypes.default.any),
   submitButtonStyle: _propTypes.default.objectOf(_propTypes.default.any),
@@ -9759,14 +9374,6 @@ ChatBot.defaultProps = {
   opened: undefined,
   placeholder: 'Type the message ...',
   inputAttributes: {},
-  recognitionEnable: false,
-  recognitionLang: 'en',
-  recognitionPlaceholder: 'Listening ...',
-  speechSynthesis: {
-    enable: false,
-    lang: 'en',
-    voice: null
-  },
   style: {},
   submitButtonStyle: {},
   toggleFloating: undefined,
@@ -9777,7 +9384,7 @@ ChatBot.defaultProps = {
 };
 var _default = ChatBot;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","random-id":"node_modules/random-id/index.js","./steps_components":"react-simple-chatbot/steps_components/index.jsx","./schemas/schema":"react-simple-chatbot/schemas/schema.js","./storage":"react-simple-chatbot/storage.js","./components":"react-simple-chatbot/components/index.js","./recognition":"react-simple-chatbot/recognition.js","./icons":"react-simple-chatbot/icons/index.jsx","./utils":"react-simple-chatbot/utils.js","./speechSynthesis":"react-simple-chatbot/speechSynthesis.js"}],"node_modules/scheduler/cjs/scheduler.development.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","random-id":"node_modules/random-id/index.js","./steps_components":"react-simple-chatbot/steps_components/index.jsx","./schemas/schema":"react-simple-chatbot/schemas/schema.js","./storage":"react-simple-chatbot/storage.js","./components":"react-simple-chatbot/components/index.js","./icons":"react-simple-chatbot/icons/index.jsx","./utils":"react-simple-chatbot/utils.js"}],"node_modules/scheduler/cjs/scheduler.development.js":[function(require,module,exports) {
 var global = arguments[3];
 /** @license React v0.13.6
  * scheduler.development.js
@@ -33393,7 +33000,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52606" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54271" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

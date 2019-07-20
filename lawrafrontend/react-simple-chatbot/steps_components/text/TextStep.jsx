@@ -13,7 +13,7 @@ class TextStep extends Component {
   };
 
   componentDidMount() {
-    const { step, speak, previousValue, triggerNextStep } = this.props;
+    const { step, triggerNextStep } = this.props;
     const { component, delay, waitAction } = step;
     const isComponentWatingUser = component && waitAction;
 
@@ -22,7 +22,6 @@ class TextStep extends Component {
         if (!isComponentWatingUser && !step.rendered) {
           triggerNextStep();
         }
-        speak(step, previousValue);
       });
     }, delay);
   }
@@ -66,7 +65,10 @@ class TextStep extends Component {
     const showAvatar = user ? !hideUserAvatar : !hideBotAvatar;
 
     return (
-      <TextStepContainer className={`rsc-ts ${user ? 'rsc-ts-user' : 'rsc-ts-bot'}`} user={user}>
+      <TextStepContainer
+        className={`rsc-ts ${user ? 'rsc-ts-user' : 'rsc-ts-bot'}`}
+        user={user}
+      >
         <ImageContainer className="rsc-ts-image-container" user={user}>
           {isFirst && showAvatar && (
             <Image
@@ -109,7 +111,6 @@ TextStep.propTypes = {
     PropTypes.object,
     PropTypes.array
   ]),
-  speak: PropTypes.func,
   step: PropTypes.objectOf(PropTypes.any).isRequired,
   steps: PropTypes.objectOf(PropTypes.any),
   triggerNextStep: PropTypes.func.isRequired
@@ -118,7 +119,6 @@ TextStep.propTypes = {
 TextStep.defaultProps = {
   previousStep: {},
   previousValue: '',
-  speak: () => {},
   steps: {}
 };
 
