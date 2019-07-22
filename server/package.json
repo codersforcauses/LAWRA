@@ -1,0 +1,19 @@
+{
+  "name": "lawra-api",
+  "version": "0.5.0",
+  "description": "An API for the LAWRA chatbot",
+  "main": "app.js",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "standard": "^13.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon -r esm app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Coders for Causes",
+  "license": "ISC"
+}
