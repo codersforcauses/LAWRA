@@ -3,12 +3,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Link from "./Link";
 import "./ChatbotStyles.css";
+import LAWRAIntroImg from "./LAWRAIntroImg";
+
+const floatingStyleOnLawraClose = {
+  background: "#40A7F1"
+};
+const defaultFloatingStyle = {
+  display: "none"
+};
 
 ReactDOM.render(
   <>
     <ChatBot
       headerTitle="LAWRA"
       hideSubmitButton={true}
+      floatingStyle={defaultFloatingStyle}
       steps={[
         {
           id: "intro",
@@ -104,6 +113,7 @@ ReactDOM.render(
       ]}
       floating={true}
     />
+    <LAWRAIntroImg />
   </>,
   document.getElementById("app")
 );
