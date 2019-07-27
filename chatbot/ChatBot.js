@@ -197,17 +197,35 @@ const ChatBot = ({ show = true, opened = false }) => {
             {
               id: 'Peel',
               component: (
-                <Link
-                  message="Contact Peel CLS"
-                  link="https://www.peelcls.com.au/contact/"
-                />
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ marginBottom: '1rem' }}>
+                    {' '}
+                    Call Peel CLS here: <b>(08) 9581 4511</b>
+                  </div>
+
+                  <Link
+                    message="Website: https://www.peelcls.com.au/contact/"
+                    link="https://www.peelcls.com.au/contact/"
+                  />
+                </div>
               ),
               end: true
             },
             {
               id: 'NSCLS',
               component: (
-                <Link message="Contact NSCLS" link="https://nsclegal.org.au/" />
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ marginBottom: '1rem' }}>
+                    {' '}
+                    Call Mirrabooka NSCLS here: <b>(08) 9440 1663</b>
+                    <p />
+                    Call Joondalup NSCLS here: <b>(08) 9301 4413</b>
+                  </div>
+                  <Link
+                    message="Website: https://nsclegal.org.au/"
+                    link="https://nsclegal.org.au/"
+                  />
+                </div>
               ),
 
               end: true
@@ -215,29 +233,35 @@ const ChatBot = ({ show = true, opened = false }) => {
             {
               id: 'CCLSWA',
               component: (
-                <Link
-                  message="Contact CCLSWA"
-                  link="https://cclswa.org.au/contact/"
-                />
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ marginBottom: '1rem' }}>
+                    {' '}
+                    Call CCLSWA here: <b>(08) 9221 7066</b>
+                  </div>
+                  <Link
+                    message="Website: https://cclswa.org.au/contact/"
+                    link="https://cclswa.org.au/contact/"
+                  />
+                </div>
               ),
               end: true
             },
             {
               id: 'Peel&NSCLS',
               component: (
-                <>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ marginBottom: '1rem' }}>
+                    {' '}
+                    Call Peel CLS here: <b>(08) 9581 4511</b>
+                  </div>
+
                   <Link
-                    message="Contact Peel CLS"
+                    message="Website: https://www.peelcls.com.au/contact/"
                     link="https://www.peelcls.com.au/contact/"
                   />
-                  <span style={{ margin: '0 1rem' }} />
-                  <Link
-                    message="Contact NSCLS"
-                    link="https://nsclegal.org.au/"
-                  />
-                </>
+                </div>
               ),
-              end: true
+              trigger: 'NSCLS'
             },
             {
               id: 'ELS',
