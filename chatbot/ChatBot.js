@@ -1,13 +1,13 @@
-import React from "react";
-import SimpleChatBot from "./react-simple-chatbot/ChatBot";
-import Link from "./Link";
+import React from 'react';
+import SimpleChatBot from './react-simple-chatbot/ChatBot';
+import Link from './Link';
 
 const ChatBot = ({ show = true, opened = false }) => {
   const floatingStyleOnLawraClose = {
-    background: "#40A7F1"
+    background: '#40A7F1'
   };
   const defaultFloatingStyle = {
-    display: "none"
+    display: 'none'
   };
 
   return (
@@ -20,50 +20,182 @@ const ChatBot = ({ show = true, opened = false }) => {
           opened={opened}
           steps={[
             {
-              id: "2",
-              message: "What is your legal problem",
-              trigger: "3"
+              id: 'intro1',
+              message:
+                'Hi my name is Lawra. There are many different legal help centres in Western Australia and I’m here to make sure you speak to the right person.',
+              trigger: 'intro2'
             },
             {
-              id: "3",
+              id: 'intro2',
+              message: 'What is your legal problem',
+              trigger: 'choices'
+            },
+            {
+              id: 'choices',
               options: [
-                { value: 1, label: "Family", trigger: "4" },
-                { value: 2, label: "Money", trigger: "101" },
-                { value: 3, label: "Crime", trigger: "101" }
+                { value: 1, label: 'Family', trigger: 'familyOptions' },
+                { value: 2, label: 'Money', trigger: 'moneyOptions' },
+                { value: 3, label: 'Crime', trigger: 'crimeOptions' }
               ]
             },
             {
-              id: "4",
+              id: 'familyOptions',
               options: [
                 {
                   value: 1,
-                  label: "Family violence and your safety",
-                  trigger: "103"
+                  label: 'Family violence and your safety',
+                  trigger: 'Peel&NSCLS'
                 },
                 {
                   value: 2,
-                  label: "Resolving family law disputes",
-                  trigger: "103"
+                  label: 'Resolving family law disputes',
+                  trigger: 'Peel&NSCLS'
                 },
-                { value: 3, label: "Separation and Divorce", trigger: "103" },
-                { value: 4, label: "Child Custody", trigger: "103" },
-                { value: 5, label: "Relocating with child", trigger: "103" },
+                {
+                  value: 3,
+                  label: 'Separation and Divorce',
+                  trigger: 'Peel&NSCLS'
+                },
+                { value: 4, label: 'Child Custody', trigger: 'Peel&NSCLS' },
+                {
+                  value: 5,
+                  label: 'Relocating with child',
+                  trigger: 'Peel&NSCLS'
+                },
                 {
                   value: 6,
-                  label: "Dividing Property and Possessions",
-                  trigger: "103"
+                  label: 'Dividing Property and Possessions',
+                  trigger: 'Peel&NSCLS'
                 },
-                { value: 7, label: "Child Support", trigger: "100" },
-                { value: 8, label: "Restraining Orders", trigger: "103" }
+                { value: 7, label: 'Child Support', trigger: 'Peel' },
+                {
+                  value: 8,
+                  label: 'Restraining Orders',
+                  trigger: 'Peel&NSCLS'
+                },
+                { value: 9, label: 'Child Protection', trigger: 'Peel&NSCLS' },
+                { value: 10, label: 'Elder Abuse', trigger: 'Peel&NSCLS' },
+                {
+                  value: 11,
+                  label: 'Wills and Estate',
+                  trigger: 'Wills&Estate'
+                }
               ]
             },
             {
-              id: "99",
-              message: "family is #1",
-              end: true
+              id: 'Wills&Estate',
+              options: [
+                { value: 1, label: 'Wills' },
+                { value: 2, label: 'Estates', trigger: 'NSCLS' }
+              ]
             },
             {
-              id: "100",
+              id: 'moneyOptions',
+              options: [
+                {
+                  value: 1,
+                  label: 'Borrowing money and debt',
+                  trigger: 'NSCLS'
+                },
+                {
+                  value: 2,
+                  label: 'Centrelink/Welfare Payments',
+                  trigger: 'Peel'
+                },
+                {
+                  value: 3,
+                  label: 'Elder Abuse',
+                  trigger: 'Peel&NSCLS'
+                },
+                {
+                  value: 4,
+                  label: 'Fines and infrigements',
+                  trigger: 'Peel&NSCLS'
+                },
+                {
+                  value: 5,
+                  label: 'Going to court over money',
+                  trigger: 'NSCLS'
+                },
+                {
+                  value: 6,
+                  label: 'Identity theft',
+                  trigger: ''
+                },
+                {
+                  value: 7,
+                  label: 'Natural disasters',
+                  trigger: ''
+                },
+                {
+                  value: 8,
+                  label: 'Work related payments',
+                  trigger: 'ELS'
+                },
+                {
+                  value: 9,
+                  label: 'Criminal Injuries Compensation Scheme',
+                  trigger: 'Peel&NSCLS'
+                }
+              ]
+            },
+            {
+              id: 'crimeOptions',
+              options: [
+                {
+                  value: 1,
+                  label: 'Restraining Orders',
+                  trigger: 'Peel&NSCLS'
+                },
+                {
+                  value: 2,
+                  label: 'Fines and infringements',
+                  trigger: 'Peel&NSCLS'
+                },
+                {
+                  value: 3,
+                  label: 'Going to court for a criminal charge',
+                  trigger: 'NSCLS'
+                },
+                {
+                  value: 4,
+                  label: 'Criminal records and spent convictions',
+                  trigger: 'Peel&NSCLS'
+                },
+                {
+                  value: 5,
+                  label: 'Traffic Offences',
+                  trigger: 'Peel&NSCLS'
+                },
+                {
+                  value: 6,
+                  label: 'Prisoner information',
+                  trigger: 'NSCLS'
+                },
+                {
+                  value: 7,
+                  label: 'Proceeds of crime - frozen assets',
+                  trigger: 'NSCLS'
+                },
+                {
+                  value: 8,
+                  label: 'Rehearing and appeals',
+                  trigger: 'NSCLS'
+                },
+                {
+                  value: 9,
+                  label: 'Under arrest and police powers',
+                  trigger: 'NSCLS'
+                },
+                {
+                  value: 10,
+                  label: 'Criminal Injuries Compensation',
+                  trigger: 'Peel&NSCLS'
+                }
+              ]
+            },
+            {
+              id: 'Peel',
               component: (
                 <Link
                   message="Contact Peel CLS"
@@ -73,7 +205,7 @@ const ChatBot = ({ show = true, opened = false }) => {
               end: true
             },
             {
-              id: "101",
+              id: 'NSCLS',
               component: (
                 <Link message="Contact NSCLS" link="https://nsclegal.org.au/" />
               ),
@@ -81,7 +213,7 @@ const ChatBot = ({ show = true, opened = false }) => {
               end: true
             },
             {
-              id: "102",
+              id: 'CCLSWA',
               component: (
                 <Link
                   message="Contact CCLSWA"
@@ -91,19 +223,29 @@ const ChatBot = ({ show = true, opened = false }) => {
               end: true
             },
             {
-              id: "103",
+              id: 'Peel&NSCLS',
               component: (
                 <>
                   <Link
                     message="Contact Peel CLS"
                     link="https://www.peelcls.com.au/contact/"
                   />
-                  <span style={{ margin: "0 1rem" }} />
+                  <span style={{ margin: '0 1rem' }} />
                   <Link
                     message="Contact NSCLS"
                     link="https://nsclegal.org.au/"
                   />
                 </>
+              ),
+              end: true
+            },
+            {
+              id: 'ELS',
+              component: (
+                <Link
+                  message="Contact ELS CLS"
+                  link="https://www.peelcls.com.au/contact/"
+                />
               ),
               end: true
             }
