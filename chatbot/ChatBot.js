@@ -4,7 +4,7 @@ import Link from "./Link";
 
 const ChatBot = ({ show = true, opened = false }) => {
   const floatingStyleOnLawraClose = {
-    background: "#40A7F1"
+    background: "#5ca8ef"
   };
   const defaultFloatingStyle = {
     display: "none"
