@@ -1,6 +1,6 @@
 export default {
+  fontFamily: 'Roboto, sans-serif',
   background: "#f5f8fb",
-  fontFamily: "monospace",
   headerBgColor: "#5ca8ef",
   headerFontColor: "#fff",
   headerFontSize: "16px",
