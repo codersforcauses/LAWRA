@@ -1,10 +1,10 @@
 # LAWRA
 
 > A chatbot that will help
-CLC clients with contacting, and receiving service from the correct legal department to improve the quality and
-efficiency of people’s interactions with CLCs.
+> CLC clients with contacting, and receiving service from the correct legal department to improve the quality and
+> efficiency of people’s interactions with CLCs.
 
-## [Link to Project Demo](https://build-qd7v5tg0n.now.sh/)
+## [Link to Project Demo](https://lawra-1g8e4x1lb.now.sh)
 
 ## Meetings
 
