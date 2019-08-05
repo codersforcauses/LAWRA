@@ -30,7 +30,7 @@ const ChatBot = ({ show = true, opened = false }) => {
             // },
             {
               id: 'intro2',
-              message: 'What is your legal problem',
+              message: 'What is your legal problem?',
               trigger: 'choices'
             },
             {
