@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node ./api/index.js",
+    "dev": "nodemon --exec babel-node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -30,6 +30,7 @@
     "babel-loader": "^8.0.6",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.18.2",
+    "sequelize-cli": "^5.5.0"
   }
 }
